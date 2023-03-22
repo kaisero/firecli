@@ -1,0 +1,39 @@
+version: 1
+
+formatters:
+  console:
+    class: 'firecli.ConsoleFormatter'
+    format: '%(asctime)s %(levelname)6s : %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  file:
+    class: 'firecli.FileFormatter'
+    format: '%(asctime)s %(name)s %(levelname)s %(pathname)s %(lineno)s %(exc_info)s %(message)s '
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+filters:
+  console:
+    (): firecli.ConsoleLoggingFilter
+  file:
+    (): firecli.FileLoggingFilter
+
+handlers:
+  console:
+    class: 'rich.logging.RichHandler'
+    formatter: console
+    filters:
+      - console
+    show_time: False
+    show_level: False
+    show_path: False
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: file
+    filename: ${LOG_DIR}/${PROJECT_NAME}.log
+    maxBytes: 104857600
+    backupCount: 3
+    filters:
+      - file
+
+root:
+  level: INFO
+  handlers: [console, file]

@@ -1,0 +1,98 @@
+cache_dir: /tmp/firecli
+log_dir:
+fmc:
+  hostname: fmc.example.com
+  username: firerest
+  password: ChangeMeForSecurity123!
+  domain: Global/DEV
+  timeout: 60
+afa:
+  hostname: afa.example.com
+  username: firecli
+  password: ChangeMeForSecurity123!
+  timeout: 60
+compliance:
+  profiles:
+    default:
+      zones:
+        - name: Internet
+          networks:
+            - 0.0.0.0/0
+        - name: Labor
+          networks:
+            - 10.0.0.0/16
+        - name: DMZ
+          networks:
+            - 10.0.210.0/24
+        - name: Production
+          networks:
+            - 172.21.0.0/16
+      matrix:
+        Internet:
+          - Labor
+          - Production
+        Labor:
+          - Production
+        DMZ:
+          - Production
+        Production: []
+
+options:
+  report:
+    no_of_accessrules:
+#      accesspolicy: FireCLI-AccessPolicy
+#      format: csv
+#      output_dir: ./
+    accessrules_without_comments:
+#     accesspolicy: FireCLI-AccessPolicy
+#     format: csv
+#      output_dir: .
+#      summary: False
+    accessrules_without_ticketid:
+#      accesspolicy: FireCLI-AccessPolicy
+#      format: csv
+#      output_dir: .
+#      summary: False
+    noncompliant_accessrules:
+#      accesspolicy: FireCLI-AccessPolicy
+#      device: ftd01.example.com
+#      exclude:
+#        - FireCLI-AccessRule-To-Ignore-1
+#        - FireCLI-AccessRule-To-Ignore-2
+#      format: csv
+#      risks:
+#        - C00001
+#        - C00002
+#        - C00003
+#      output_dir: .
+#      summary: False
+    noncompliant_network_segments:
+#      device: ftd01.example.com
+#      format: csv
+#      networks:
+#        - src:
+#            name: CORE
+#            values:
+#              - 198.18.0.0/16
+#          dst:
+#            name: CLIENT
+#            values:
+#              - 198.19.1.0/24
+#              - 198.19.2.0/24
+#      output_dir: .
+  s2svpn:
+    point2point:
+#      name: example-p2p-topology
+      create:
+#        local_device: ftd01.example.com
+#        local_interface: OUTSIDE
+#        local_networks: H_OBJ
+#        remote_device: ftd02.example.com
+#        remote_interface: 1.1.1.1
+#        remote_networks: N_OBJ
+#        ikev2_policy: AES256-SHA256-DH21
+#        ikev2_psk: Test123
+#        ipsec_proposal: AES256-SHA256
+#        ipsec_lifetime: 28800
+#        ipsec_enable_rri: False
+#        ipsec_pfs_dh_group: None

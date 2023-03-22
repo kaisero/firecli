@@ -1,0 +1,48 @@
+stages:
+  - static_analysis
+  - test
+  - build
+
+static_analysis:
+  allow_failure: true
+  stage: static_analysis
+  image: python:3.8-buster
+  tags:
+    - docker-container-runner
+  cache:
+    paths:
+      - .pip
+  before_script:
+    - pip install tox
+  script:
+    - tox -e flake8
+    - tox -e pre-commit
+
+test:
+  allow_failure: true
+  stage: test
+  image: python:3.8-buster
+  tags:
+    - docker-container-runner
+  cache:
+    paths:
+      - .pip
+  before_script:
+    - pip install tox
+  script:
+    - tox
+
+build:
+  allow_failure: true
+  stage: build
+  image: python:3.8-buster
+  tags:
+    - docker-container-runner
+  cache:
+    paths:
+      - .pip
+  before_script:
+    - pip install tox
+  script:
+    - tox -e build
+    - tox -e docs

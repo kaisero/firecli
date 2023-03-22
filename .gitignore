@@ -1,0 +1,11 @@
+# project specific ignore list
+*.csv
+*.xlsx
+*.swp
+test.py
+.idea
+.DS_Store
+man
+*.egg-info
+etc/manpages
+etc/autocomplete
