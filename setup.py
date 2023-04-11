@@ -23,7 +23,7 @@ setuptools.setup(
     url='https://git.ong.at/cisco/firecli.git',
     packages=setuptools.find_packages(),
     install_requires=[
-        'click>=7.1.2',
+        'click<=8.0.4',
         'fireREST>=1.0.9',
         'jsonschema>=3.2.0',
         'netaddr>=0.8.0',
@@ -39,7 +39,7 @@ setuptools.setup(
     classifiers=[
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
-        'License :: MIT',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 3',

@@ -1,3 +1,9 @@
+# 1.1.3
+
+## Fixed
+
+* Fixed broken version pinning to incompatible click library
+
 # 1.1.1
 
 ## Fixed
